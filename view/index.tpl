@@ -10,10 +10,10 @@
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="static/css/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -149,13 +149,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/tabledata.js"></script>
-    <script src="js/valuecontrol.js"></script>
+    <script>window.jQuery || document.write('<script src="static/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/modal.js"></script>
+    <script src="static/js/tabledata.js"></script>
+    <script src="static/js/valuecontrol.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="static/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

@@ -28,7 +28,7 @@ def main():
     newsession.setMasterConfig()
     newsession.getMasterConfig()
 
-    print(json.dumps(newsession.toObject()))
+    return json.dumps(newsession.toObject())
 
 
 main()

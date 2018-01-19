@@ -17,6 +17,11 @@ def send_js(filename):
     return static_file(filename, root=dirname + '/static/asset/js')
 
 
+@route('/')
+def index():
+    return template('index')
+
+
 @route('/teste')
 def sensors():
     return controller.main()

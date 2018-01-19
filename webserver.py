@@ -1,10 +1,11 @@
-from bottle import route, run, get, post, request, error, response
+from bottle import route, run, get, post, request, error, response, default_app
 import json
+import sessioncontroller as controller
 
 
 @route('/teste')
 def sensors():
-    return "teste"
+    return controller.main()
 
 
-run(host='0.0.0.0', port=8080, debug=True, server='paste', reloader=True)
+application = default_app()

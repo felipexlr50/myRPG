@@ -23,7 +23,8 @@ def main():
 
     master1 = master.Master(None, None, None, None, None, None)
 
-    newsession = session.Session(1, players, master1, users, 'teste')
+    newsession = session.Session(
+        1, 'SessionName', players, master1, users, 'teste')
     newsession.setMasterConfig()
     newsession.getMasterConfig()
 

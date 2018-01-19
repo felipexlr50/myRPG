@@ -9,9 +9,9 @@ class Session(mysuperclass.RPGSuper):
         self.players = players
         self.master = master
         self.users = users
-        self.npcs = []
         self.description = description
         self.progress = None
+        self.npcs = []
         self.items = []
         self.skills = []
         self.quests = []

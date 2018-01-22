@@ -1,0 +1,275 @@
+/*
+ * Base structure
+ */
+
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+
+body {
+  padding-top: 3.5rem;
+}
+
+
+/*
+ * Typography
+ */
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+
+/* Sidebar navigation */
+
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item+.nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+
+/*
+ * Dashboard
+ */
+
+
+/* Placeholders */
+
+.placeholders {
+  padding-bottom: 3rem;
+  display: flex;
+}
+
+.circle-blue {
+  flex: 1;
+  border-radius: 50%;
+  margin: 5px;
+  background: #0065B8;
+  display: block;
+  padding-top: 100%;
+}
+
+.circle-green {
+  flex: 1;
+  border-radius: 50%;
+  margin: 5px;
+  background: #62EE62;
+  display: block;
+  padding-top: 100%;
+}
+
+.placeholder {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  align-items: center;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  margin: auto;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+
+/* Modal Header */
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: #312E2E;
+}
+
+
+/* Modal Body */
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+
+/* Modal Footer */
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: #312E2E;
+}
+
+
+/* Modal Content */
+
+.modal-content {
+  position: fixed;
+  background-color: #312E2E;
+  left: 18%;
+  top: 11%;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+.valorTotal {
+  padding-right: 5px;
+  padding-left: 30px;
+  font-size: 22px;
+  margin-right: 20px;
+  color: #62EE62
+}
+
+.footer {
+  display: flex;
+  position: fixed;
+  flex-direction: row;
+  left: 0px;
+  bottom: 0px;
+  height: auto;
+  width: 100%;
+  background: #343A40;
+  justify-content: space-around;
+}
+
+.footer p {
+  color: #eee;
+}
+
+.footer-collum1 {
+  flex-direction: column;
+  align-self: auto;
+}
+
+.footer-collum2 {
+  flex-direction: column;
+  align-self: auto;
+}
+
+.footer-collum2 a:link {
+  text-decoration: none;
+  color: rgb(0, 0, 0)
+}
+
+.footer-collum2 a:hover {
+  text-decoration: none;
+  color: #0065B8
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.sobre {
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.img-d20 {
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 50px;
+  opacity: 0.4;
+}
+
+.login {
+  margin-top: 30px;
+}
+
+.botao-login {
+  margin-top: 10px;
+  background-color: #0065B8;
+  border: #0065B8;
+}
+
+.botao-signUp {
+  background-color: #5cb85c;
+  border: #5cb85c;
+}
+
+.login-h3 {
+  text-align: center;
+}

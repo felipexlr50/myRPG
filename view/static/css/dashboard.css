@@ -268,8 +268,13 @@ h1 {
 .botao-signUp {
   background-color: #5cb85c;
   border: #5cb85c;
+  margin-top: 10px;
 }
 
 .login-h3 {
   text-align: center;
+}
+
+.confirm-password {
+  display: none;
 }

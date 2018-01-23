@@ -6,7 +6,7 @@ import sys
 
 
 @route('/teste')
-def sensors():
+def teste():
     return controller.main()
 
 

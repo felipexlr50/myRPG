@@ -4,21 +4,21 @@
 <head></head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="../../../../favicon.ico">
+<meta name="description" content="RPG Session Manager">
+<meta name="author" content="Felipe Baptista">
 <title>Dashboard Template for Bootstrap</title>
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="static/css/dashboard.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/2dad38699d.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">Galera RPG Session</a>
+            <a class="navbar-brand" href="index.html">Galera RPG Session</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,12 +26,12 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Sign In
+                        <a class="nav-link" href="login.html">Sign In
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre</a>
+                        <a class="nav-link" href="index.html#sobre">Sobre</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
@@ -42,17 +42,21 @@
     </header>
     <section class="main">
         <div class="login">
-            <form action="" method="post" name="Login_Form" class="form-signin">
-                <h3 class="form-signin-heading login-h3">RPG Login</h3>
+            <form action="#" method="post" name="Login_Form" class="form-signin" onsubmit="return false;">
+                <h3 id="login-title" class="form-signin-heading login-h3">RPG Login</h3>
                 <hr class="colorgraph">
                 <br>
-                <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus=""
+                <input id="email" type="email" class="form-control" name="Email" placeholder="Email" required="required"
+                    autofocus="" />
+                <input id="password" type="password" class="form-control" name="Password" placeholder="Password" required="required"
                 />
-                <input type="password" class="form-control" name="Password" placeholder="Password" required="" />
-                <button class="btn btn-lg btn-primary btn-block botao-login" name="Submit" value="Login" type="Submit">Login</button>
-                <button class="btn btn-lg btn-primary btn-block botao-signUp" name="Submit" value="Sign_Up"
-                    type="Submit">New User</button>
+                <input id="confirm-password" type="password" class="form-control confirm-password" style="margin-bottom:20px;"
+                    name="confirm-password" placeholder="Confirm Password" required="required" />
+                <button id="login" class="btn btn-lg btn-primary btn-block botao-login" onclick="onClickLogin()" name="Submit"
+                    value="Login" type="Submit">Login</button>
             </form>
+            <button id="newUser" class="btn btn-lg btn-primary btn-block botao-signUp" onclick="onClickNewUser()" name="Submit"
+                value="Sign_Up" type="Submit">New User</button>
         </div>
     </section>
     <footer class="footer">
@@ -69,16 +73,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script>
-        window.jQuery || document.write('<script src="static/js/vendor/jquery.min.js"><\/script>')
-    </script>
+    <script src="https://rawgit.com/emn178/js-sha256/master/build/sha256.min.js"></script>
     <script src="static/js/popper.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
-    <script src="static/js/modal.js"></script>
-    <script src="static/js/tabledata.js"></script>
-    <script src="static/js/valuecontrol.js"></script>
+    <script src="static/js/loginHandler.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="static/js/ie10-viewport-bug-workaround.js"></script>
 </body>

@@ -17,8 +17,10 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a href class="navbar-brand" href="index.html">Galera RPG Session</a>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark rpg-nav">
+            <div class="page-title page-title-large page-title-medium">
+                <a href class="navbar-brand" href="index.html">Galera RPG Session</a>
+                <img class="rpg-icon" src="static/img/d20-icon.png" height="40" width="auto"> </div>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,11 +38,39 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="session-master.html">New Session</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <section class="main"> </section>
+    <section class="main-user">
+        <div id="user-info" class="user-info">
+            <h4>User Info</h4>
+            <ul>
+                <li>User Name: </li>
+                <li>Last Played Session: </li>
+            </ul>
+        </div>
+        <div id="session-table table-responsive" class="session-table">
+            <h3 class="session-title">Sessions</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Session Name</th>
+                        <th>Joined</th>
+                        <th>N° Players</th>
+                        <th>Master</th>
+                        <th>Started</th>
+                        <th>Last Game</th>
+                        <th>Finished</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </section>
     <footer class="footer">
         <div class="footer-collum1">
             <p>Created by: Felipe Baptista</p>

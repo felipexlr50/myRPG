@@ -278,3 +278,51 @@ h1 {
 .confirm-password {
   display: none;
 }
+
+.main-user {
+  display: flex;
+  flex-flow: column;
+}
+
+.session-table {
+  margin-top: 5em;
+}
+
+.session-title {
+  text-align: center;
+}
+
+.user-info {
+  float: left;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+@media (min-width:960px) {
+  .page-title-large {
+    padding-right: 33%;
+  }
+}
+
+@media (min-width:600px) and (max-width:959px) {
+  .page-title-medium {
+    padding-right: 15%;
+  }
+}
+
+.rpg-icon {
+  padding-right: 120px;
+  flex-shrink: inherit;
+}
+
+.rpg-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-direction: row;
+}

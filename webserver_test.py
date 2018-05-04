@@ -1,4 +1,4 @@
-#from bottle import route, run, get, post, request, error, response, default_app, template, debug, static_file, Bottle
+from bottle import route, run, get, post, request, error, response, default_app, template, debug, static_file, Bottle
 import json
 import sessioncontroller as controller
 import os

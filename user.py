@@ -1,17 +1,19 @@
 import mysuperclass
+import db_connection as db
 
 
 class User(mysuperclass.RPGSuper):
 
-    def __init__(self, username, email, userId):
-        self.username = username
+    def __init__(self, name, email, password):
+        self.name = name
         self.email = email
+        self.password = password
         self.chars = []
         self.sessions = []
-        self.userId = userId
+        self.id = self.toHashId(self)
 
-    def getUsername(self):
-        return self.username
+    def getName(self):
+        return self.name
 
     def getEmail(self):
         return self.email
@@ -23,7 +25,10 @@ class User(mysuperclass.RPGSuper):
         self.sessions.append(session)
 
     def getUserId(self):
-        return self.userId
+        return self.id
 
-    def setUserId(self, userId):
-        self.userId = userId
+    def getPassword(self):
+        return self.password
+
+    def update(self, args):
+        return db.update(self.id, args, "user")

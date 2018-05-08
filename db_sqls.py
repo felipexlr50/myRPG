@@ -3,7 +3,8 @@ def getSqls():
     result = []
 
     sessionCreate = '''
-    CREATE TABLE IF NOT EXISTS `rpg`.`session` (`id` VARCHAR(56) NOT NULL  ,`name` TEXT NOT NULL ,
+    CREATE TABLE IF NOT EXISTS `rpg`.`session` (`id` VARCHAR(56) NOT NULL ,
+    `ownerId` VARCHAR(56) NOT NULL , `name` TEXT NOT NULL ,
     `playersIds` TEXT NULL ,`users` TEXT NULL ,`description` TEXT NULL ,
     `progress` TEXT NULL ,`npcs` TEXT NULL ,`items` TEXT NULL ,`skills` TEXT NULL ,
     `quests` TEXT NULL ,`create_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,

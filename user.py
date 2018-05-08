@@ -24,7 +24,7 @@ class User(mysuperclass.RPGSuper):
     def addSession(self, session):
         self.sessions.append(session)
 
-    def getUserId(self):
+    def getId(self):
         return self.id
 
     def getPassword(self):

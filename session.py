@@ -3,12 +3,13 @@ import mysuperclass
 
 class Session(mysuperclass.RPGSuper):
 
-    def __init__(self, sessionName, sessionId, players, master, users, description):
+    def __init__(self, sessionName, sessionOwnerId, description):
         self.sessionName = sessionName
-        self.sessionId = sessionId
-        self.players = players
-        self.master = master
-        self.users = users
+        self.sessionId = self.toHashId(self)
+        self.players = []
+        self.master = None
+        self.ownerId = sessionOwnerId
+        self.users = []
         self.description = description
         self.progress = None
         self.npcs = []
@@ -36,6 +37,18 @@ class Session(mysuperclass.RPGSuper):
         self.items = self.master.getItems()
         self.skills = self.master.getSkills()
         self.npcs = self.master.getNpcs()
+
+    def getDescription(self):
+        return self.description
+
+    def getName(self):
+        return self.sessionName
+
+    def getId(self):
+        return self.sessionId
+
+    def getOwnerId(self):
+        return self.ownerId
 
     def addNpc(self, npc):
         self.npcs.append(npc)

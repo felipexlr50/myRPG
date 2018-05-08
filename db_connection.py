@@ -109,13 +109,38 @@ def select(table, args):
     cursor = db.cursor()
     sql = getBaseSelect(table, args)
     results = ''
+    fieldNames = ''
 
     try:
         cursor.execute(sql)
+        fields = len(cursor.description)
+        fieldNames = [i[0] for i in cursor.description]
         results = cursor.fetchall()
     except Exception as e:
         results = False
         print(e)
     finally:
-        return results
+        return results, fieldNames
     db.close()
+
+
+def getMapTables(interface):
+
+    if interface == "users":
+        return "user"
+    elif interface == "players":
+        return "player"
+    elif interface == "quests":
+        return "quest"
+    elif interface == "items":
+        return "item"
+    elif interface == "sessions":
+        return "session"
+    elif interface == "masters":
+        return "master"
+    elif interface == "skills":
+        return "skill"
+    elif interface == "npcs":
+        return "npc"
+    else:
+        return None

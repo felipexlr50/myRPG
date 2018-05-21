@@ -75,8 +75,8 @@ def getSqls():
     masterCreate = '''
     CREATE TABLE IF NOT EXISTS rpg.master (
         `id` VARCHAR(56) NOT NULL ,
-        userId INT NOT NULL,
-        sessionId INT NOT NULL,
+        userId VARCHAR(56) NOT NULL,
+        sessionId VARCHAR(56) NOT NULL,
         create_data TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id),
         FOREIGN KEY (userId) REFERENCES user(id),

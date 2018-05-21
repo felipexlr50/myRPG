@@ -5,6 +5,7 @@ import os
 import sys
 import hashkeyhandler as keyHandler
 
+
 baseResponseObj = {'result': '', 'info': '', 'status-code': response.status}
 
 
@@ -12,7 +13,7 @@ baseResponseObj = {'result': '', 'info': '', 'status-code': response.status}
 @route('/<obj>/<id:path>')
 def getObject(id=None, obj=None):
     response.content_type = 'application/json'
-    #response.add_header('Access-Control-Allow-Origin', '*')
+    response.add_header('Access-Control-Allow-Origin', '*')
     print(obj)
     baseResponseObj['info'] = 'Found results'
     baseResponseObj['status-code'] = response.status
@@ -50,7 +51,7 @@ def deleteObject(user=None):
 @route('/users', method='POST')
 def newUser(obj=None):
     response.content_type = 'application/json'
-   # response.add_header('Access-Control-Allow-Origin', '*')
+    response.add_header('Access-Control-Allow-Origin', '*')
     newUserJson = request.json
     key = request.get_header('key')
 
@@ -61,7 +62,7 @@ def newUser(obj=None):
         if(result):
             baseResponseObj['result'] = 'OK'
             baseResponseObj['info'] = 'user ' + \
-                str(user.getName()) + " created!"
+                str(user.getId()) + " created!"
             baseResponseObj['status-code'] = response.status
             return json.dumps(baseResponseObj)
         else:
@@ -81,18 +82,55 @@ def newUser(obj=None):
 @route('/sessions', method='POST')
 def newSession(obj=None):
     response.content_type = 'application/json'
-   # response.add_header('Access-Control-Allow-Origin', '*')
+    response.add_header('Access-Control-Allow-Origin', '*')
     newJson = request.json
     key = request.get_header('key')
 
-    if(newJson):
+    if(newJson and keyHandler.isRequestOK(key)):
         newObj = newJson
         result, session = controller.newSession(
             newObj['ownerId'], newObj['name'], newObj['description'])
         if(result):
             baseResponseObj['result'] = 'OK'
             baseResponseObj['info'] = 'Session ' + \
-                str(session.getName()) + " created!"
+                str(session.getId()) + " created!"
+            baseResponseObj['status-code'] = response.status
+            return json.dumps(baseResponseObj)
+        else:
+            response.status = 500
+            baseResponseObj['result'] = 'FAULT'
+            baseResponseObj['info'] = 'Failed session creation'
+            baseResponseObj['status-code'] = response.status
+            return json.dumps(baseResponseObj)
+    else:
+        response.status = 400
+        baseResponseObj['result'] = 'NOT ALLOWED'
+        baseResponseObj['info'] = 'Missing or wrong body request'
+        baseResponseObj['status-code'] = response.status
+        return json.dumps(baseResponseObj)
+
+
+@route('/<obj>', method='OPTIONS')
+def options(obj=None):
+    response.add_header('Access-Control-Allow-Origin', '*')
+    response.add_header('Access-Control-Allow-Headers', 'X-KEY, Content-Type')
+    response.add_header('Allow', 'GET, POST, OPTIONS')
+
+
+@route('/masters', method='POST')
+def newSession(obj=None):
+    response.content_type = 'application/json'
+    newJson = request.json
+    key = request.get_header('X-KEY')
+
+    if(newJson and keyHandler.isRequestOK(key)):
+        newObj = newJson
+        result, master = controller.newMaster(
+            newObj['userId'], newObj['sessionId'])
+        if(result):
+            baseResponseObj['result'] = 'OK'
+            baseResponseObj['info'] = 'Master ' + \
+                str(master.getId()) + " created!"
             baseResponseObj['status-code'] = response.status
             return json.dumps(baseResponseObj)
         else:
@@ -110,4 +148,5 @@ def newSession(obj=None):
 
 
 application = default_app()
-application.run(host='0.0.0.0', port=8080, debug=True, reloader=False)
+application.run(host='0.0.0.0', port=8080, debug=True,
+                reloader=False)

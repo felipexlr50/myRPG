@@ -3,14 +3,21 @@ import mysuperclass
 
 class Master(mysuperclass.RPGSuper):
 
-    def __init__(self, players, quests, items, skills, npcs, sessionId):
-
-        self.players = players
-        self.quests = quests
-        self.items = items
-        self.skills = skills
-        self.npcs = npcs
+    def __init__(self, userId, sessionId):
+        self.id = self.toHashId(self)
+        self.players = []
+        self.quests = []
+        self.items = []
+        self.skills = []
+        self.npcs = []
         self.sessionId = sessionId
+        self.masterUserId = userId
+
+    def getMasterUserId(self):
+        return self.masterUserId
+
+    def getId(self):
+        return self.id
 
     def setPlayers(self, players):
         self.players = players

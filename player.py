@@ -3,23 +3,30 @@ import mysuperclass
 
 class Player(mysuperclass.RPGSuper):
 
-    def __init__(self, name, job, race, story, sessionId, userId):
+    def __init__(self, name, gender, job, race, story, sessionId, userId):
         self.sessionId = sessionId
         self.userId = userId
         self.creationDate = self.getDateNow()
         self.name = name
+        self.gender = gender
         self.job = job
         self.race = race
         self.story = story
         self.exp = 0
         self.lvl = 1
-        self.charId = self.toHashId(self)
+        self.id = self.toHashId(self)
         self.quest = []
         self.items = []
         self.skill = []
         self.statusPoint = 0
         self.status = {'STR': 0, 'PER': 0, 'END': 0,
                        'CHA': 0, 'INT': 0, 'AGI': 0, 'LUK': 0}
+
+    def getGender(self):
+        return self.gender
+
+    def getId(self):
+        return self.id
 
     def getName(self):
         return self.name
